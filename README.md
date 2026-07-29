@@ -14,9 +14,9 @@ https://ccpedia.xyz/mcp
 
 Ask any assistant a specific Canton question today and you get one of three
 answers: a refusal, a generic blockchain answer that is not about Canton, or a
-confident invention. The material to answer properly is public, but it is spread
-across a dozen places that no model was trained on and none of which speak a
-protocol an agent can call.
+confident invention. Everything needed to answer properly is public. It is
+just scattered across a dozen sites that no model was trained on, and none of
+them can be called by an assistant.
 
 CCPEDIA indexes those sources continuously and exposes them as tools. An
 assistant can look up the actual text of a CIP, read what the forum concluded
@@ -29,9 +29,8 @@ and when each was last synced is published here:
 https://ccpedia.xyz/api/v1/sources
 ```
 
-That endpoint is the single source of truth for those numbers. This README
-deliberately does not repeat them, because a number copied into a readme is
-wrong by the following week.
+Those numbers live only there. This README does not repeat them on purpose:
+a count copied into a readme is out of date by the following week.
 
 ## Connect
 
@@ -63,8 +62,7 @@ Streamable HTTP transport, protocol version `2024-11-05`. Standard MCP
 
 ## What it can answer
 
-Questions that previously needed a human who had been reading the forum for a
-year:
+Questions that used to need someone who had been reading the forum for a year:
 
 - What does CIP-0042 actually say, and what was the objection to it
 - Which CIPs are approved but not yet final
@@ -77,20 +75,19 @@ year:
 
 See [TOOLS.md](TOOLS.md) for the full catalogue, grouped and with arguments.
 
-That file is generated from the running server, not written by hand, so it
-cannot drift out of sync with what the server actually offers.
+It is generated from the running server rather than written by hand, so it
+cannot fall out of step with what the server actually offers.
 
 ## What this repository is, and is not
 
 This repository holds the documentation, client configuration, issue tracker
 and discussions for the hosted service.
 
-It does not currently contain the server implementation. Being straight about
-why: the server is meaningfully coupled to the indexing pipeline and the
-database behind it, and publishing the request handler without the corpus would
-give you a shell that answers nothing. Opening it properly means separating
-those, which is real work rather than a `git push`. It is on the roadmap, not in
-this commit.
+It does not contain the server code, and it is worth saying why plainly. The
+server is tied to the pipeline that builds the index and to the database it
+reads. Publishing the request handler on its own would hand you something that
+answers nothing. Separating them properly is real work, not a `git push`, so it
+is on the list rather than in this commit.
 
 If you want to run your own instance today, the same corpus is available over a
 plain REST API, documented at `https://ccpedia.xyz/api/v1`.
@@ -111,5 +108,5 @@ question you asked and the tool the assistant called, if you can see it.
 
 ## License
 
-The contents of this repository are MIT licensed. Indexed material remains under
-the license of whoever wrote it; CCPEDIA links back to every source.
+Everything in this repository is MIT licensed. Indexed material stays under
+the license of whoever wrote it, and CCPEDIA links back to every source.
