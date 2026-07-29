@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question or idea
+    url: https://github.com/OWNER/REPO/discussions
+    about: Discussions are the better place for open ended questions and ideas.
+  - name: Try it without installing anything
+    url: https://ccpedia.xyz/ask
+    about: The same corpus as a chat agent, in the browser.
