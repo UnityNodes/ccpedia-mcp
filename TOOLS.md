@@ -82,7 +82,7 @@ Arguments marked with `*` are required.
 | `get_discussion` | Get a single thread from the official Canton Network community forum (Discourse at forum-style discussions on ccpedia.xyz) by numeric topic id: title, category, view/p... | `id`* |
 | `get_github_discussion` | Get the full body and comments of a single GitHub Discussion from a Canton Network repo (e.g. canton-foundation/docs), by its GitHub GraphQL node id (from list_github_... | `id`* |
 | `get_mailing_thread` | Get every message (oldest first) in a specific Canton Network governance mailing-list thread on lists.sync.global (cip-discuss, cip-vote, grants-discuss, etc.). | `id`* |
-| `list_github_discussions` | List GitHub Discussions from Canton Network repositories (currently canton-foundation/docs) cached by CCPEDIA, sorted by upvotes then recency; filter by repo or category. | `repo`, `category`, `limit` |
+| `list_github_discussions` | List GitHub Discussions from Canton Network repositories (currently canton-foundation/docs) cached by CCPEDIA, sorted by upvotes then recency. | `repo`, `category`, `limit` |
 | `list_mailing_threads` | List threads from the Canton Network governance mailing lists (lists.sync.global groups: cip-discuss, cip-vote, cip-announce, globalSyncForum, grants-discuss, validato... | `group`, `cip_id`, `since`, `limit`, `offset` |
 
 Arguments marked with `*` are required.
