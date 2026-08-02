@@ -53,7 +53,7 @@ Arguments marked with `*` are required.
 | `get_governance_vote` | Get the full detail of one Canton on-chain DSO governance vote request: the proposed action, the requester's stated reason, every Super Validator's individual vote wit... | `tracking_cid`* |
 | `get_proposal_milestones` | For one Canton Dev Fund proposal PR, list any related milestone tracking issues (issues whose body or title references the PR number). | `pr_number`* |
 | `get_proposals` | List Canton Network Dev Fund grant proposals: community funding requests tracked on GitHub. | `state`, `limit` |
-| `list_cips` | Browse Canton Improvement Proposals (CIPs), optionally filtered by status (Draft/Review/Final/Withdrawn/Rejected/Superseded) and type (e.g. "Standards Track"). | `status`, `type`, `limit` |
+| `list_cips` | Browse Canton Improvement Proposals (CIPs), optionally filtered by status (Draft, Early Draft, In Review, Proposed, Approved, Active, Final, Withdrawn, Rejected, Repla... | `status`, `type`, `limit` |
 | `list_governance_votes` | List Canton Network on-chain DSO governance vote requests and their outcomes, from the ledger itself. | `limit`, `action`, `outcome`, `status` |
 | `list_votes_by_sv` | Get the on-chain voting record of Canton Super Validators: how many DSO governance votes each has cast, how often they voted for or against, how often they abstained, ... | `sv_name` |
 | `proposal_success_predictor` | Heuristic readiness score for a Dev Fund proposal draft, based on attributes that correlate with approval in the historical corpus: explicit milestones, code/PoC refer... | `draft_text`* |
