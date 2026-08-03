@@ -4,7 +4,7 @@ This file is generated from the running server by `build-mcp-repo-docs.ts`.
 Do not edit it by hand, and do not copy the numbers below into other files:
 regenerate instead.
 
-**87 tools**, of which 86 are read only.
+**88 tools**, of which 87 are read only.
 
 Every tool is callable over the hosted endpoint without an API key. See the
 README for how to connect.
@@ -89,7 +89,7 @@ Arguments marked with `*` are required.
 
 ## Network and ecosystem data
 
-7 tools.
+8 tools.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
@@ -98,6 +98,7 @@ Arguments marked with `*` are required.
 | `get_network_state` | Get the latest Canton Network ON-CHAIN state snapshot from the public Scan API (api.cantonnodes.com): Super Validator list & count, voting threshold, sequencer count, ... | none |
 | `get_network_stats` | Get CCPEDIA's CONTENT-CATALOG metrics: how many Canton items CCPEDIA has indexed. | none |
 | `get_token_market` | Get the latest cached market snapshot for CANTON COIN (CC) ONLY: USD price, 24h change, market cap, 24h volume, total Canton DeFi TVL, and per-protocol TVL on Canton. | none |
+| `get_validator` | Look up an individual Canton validator node in the DSO registry by name or party id: its sponsor, self-reported Splice version and how stale that report is, when it wa... | `name`*, `limit` |
 | `get_validator_fleet` | Where do you stand versus other Canton operators on your Splice version? | `version` |
 | `list_ecosystem_projects` | List Canton Network ecosystem projects (DeFi protocols, wallets, custody, infrastructure, NaaS, etc.) from the curated canton.wiki catalog. | `category`, `query`, `limit` |
 
