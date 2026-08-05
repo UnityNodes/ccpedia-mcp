@@ -80,9 +80,9 @@ Arguments marked with `*` are required.
 | Tool | What it does | Arguments |
 | --- | --- | --- |
 | `get_discussion` | Get a single thread from the official Canton Network community forum (Discourse at forum-style discussions on ccpedia.xyz) by numeric topic id: title, category, view/p... | `id`* |
-| `get_github_discussion` | Get the full body and comments of a single GitHub Discussion from a Canton Network repo (e.g. canton-foundation/docs), by its GitHub GraphQL node id (from list_github_... | `id`* |
+| `get_github_discussion` | Get the full body and comments of a single GitHub Discussion from a Canton Network or Digital Asset repo, by its GitHub GraphQL node id (from list_github_discussions). | `id`* |
 | `get_mailing_thread` | Get every message (oldest first) in a specific Canton Network governance mailing-list thread on lists.sync.global (cip-discuss, cip-vote, grants-discuss, etc.). | `id`* |
-| `list_github_discussions` | List GitHub Discussions from Canton Network repositories (currently canton-foundation/docs) cached by CCPEDIA, sorted by upvotes then recency. | `repo`, `category`, `limit` |
+| `list_github_discussions` | List GitHub Discussions from Canton Network and Digital Asset repositories cached by CCPEDIA, sorted by upvotes then recency. | `repo`, `category`, `limit` |
 | `list_mailing_threads` | List threads from the Canton Network governance mailing lists (lists.sync.global groups: cip-discuss, cip-vote, cip-announce, globalSyncForum, grants-discuss, validato... | `group`, `cip_id`, `since`, `limit`, `offset` |
 
 Arguments marked with `*` are required.
@@ -100,7 +100,7 @@ Arguments marked with `*` are required.
 | `get_token_market` | Get the latest cached market snapshot for CANTON COIN (CC) ONLY: USD price, 24h change, market cap, 24h volume, total Canton DeFi TVL, and per-protocol TVL on Canton. | none |
 | `get_validator` | Look up an individual Canton validator node in the DSO registry by name or party id: its sponsor, self-reported Splice version and how stale that report is, when it wa... | `name`*, `limit` |
 | `get_validator_fleet` | Where do you stand versus other Canton operators on your Splice version? | `version` |
-| `list_ecosystem_projects` | List Canton Network ecosystem projects (DeFi protocols, wallets, custody, infrastructure, NaaS, etc.) from the curated canton.wiki catalog. | `category`, `query`, `limit` |
+| `list_ecosystem_projects` | List Canton Network ecosystem projects (DeFi protocols, wallets, custody, infrastructure, NaaS, etc.) from the curated canton.wiki catalog. | `category`, `query`, `liveness`, `limit` |
 
 Arguments marked with `*` are required.
 
@@ -139,7 +139,7 @@ Arguments marked with `*` are required.
 | `get_funding_landscape` | Overview of the Canton Dev Fund: counts of proposals by state and label, top categories, and recent activity. | `category` |
 | `get_issue_status` | Look up one GitHub issue or PR by repo + number. | `repo`*, `number`* |
 | `get_npm_packages` | List the indexed Canton/Daml npm packages (sdk_versions registry=npm) optionally filtered by name. | `query`, `limit` |
-| `get_radar` | Get the Canton Network Radar, CCPEDIA's curated feed of time-sensitive ecosystem alerts: breaking changes, upgrade deadlines, protocol migrations and required validato... | `level` |
+| `get_radar` | Get the Canton Network Radar, CCPEDIA's curated feed of time-sensitive ecosystem alerts: breaking changes, upgrade deadlines, protocol migrations and required validato... | `level`, `limit` |
 | `get_recent_changes` | Get a chronological (newest-first) feed of recent Canton Network activity: CIP status changes, new grant proposals, new forum threads, blog posts, GitHub releases, and... | `days`, `limit` |
 | `get_recent_deployments` | Recent completed SV deployments/releases from sv_operations_calendar (operation_type in deploy\|release\|upgrade), cross-referenced with github_releases when the title n... | `limit` |
 | `get_recurring_issue_fingerprint` | Identify error patterns that recur across multiple Canton SDK or Splice release windows: structural bugs the ecosystem keeps hitting versus one-off regressions. | `window_months`, `min_months` |
@@ -148,7 +148,7 @@ Arguments marked with `*` are required.
 | `get_trending` | Get this week's most popular/trending Canton Network content (CIPs, forum threads, docs, blog, etc.) ranked by an engagement score. | none |
 | `get_upcoming_deadlines` | Canton operational deadlines coming up: scheduled upgrades, minimum-version raises, topology freezes and Logical Synchronizer Upgrades, per network. | `environment`, `days`, `validator_only` |
 | `get_upcoming_operations` | Convenience wrapper: SV operations in the next N days, all environments, all operation types. | `days`* |
-| `get_video` | Get a Canton Network video that CCPEDIA has cached (curated channels: Canton Network, Digital Asset, Sync Insights, Canton Foundation, Daml) by its YouTube id: title, ... | `id`* |
+| `get_video` | Get a Canton Network video that CCPEDIA has cached (curated channels: Canton Network, Digital Asset, Sync Insights, Canton Foundation, Daml) by its YouTube id: title, ... | `id`*, `transcript_chars` |
 | `learning_path` | Construct a structured Canton onboarding sequence for a stated goal: whitepaper → relevant docs → CIPs to know → forum starter threads → talks. | `goal`* |
 | `list_canton_mcps` | List the Canton Network MCP servers CCPEDIA knows about: a directory of the Canton MCP ecosystem (payments, wallets, docs, knowledge). | none |
 | `list_deprecations` | List all known deprecated Daml/Canton CLI commands, packages, and tools with their modern replacements. | `category` |
