@@ -17,19 +17,19 @@ README for how to connect.
 | --- | --- | --- |
 | `find_apps_by_pattern` | Pattern-search the Featured Apps catalogue by free-text query across name, category, and description. | `pattern`*, `limit` |
 | `find_cip_for_feature` | Given a Canton feature or capability description, find the matching CIP(s) by searching titles and bodies. | `feature`* |
-| `find_code_examples` | Find Canton/Daml code snippets in forum posts on a topic. | `topic`*, `limit` |
+| `find_code_examples` | Find Canton/Daml code snippets in forum posts on a topic. | `topic`*, `limit`, `offset` |
 | `find_collaboration_opportunities` | Given one Canton ecosystem project, find others with complementary tags/category that could plug in. | `project`* |
 | `find_expert` | Rank likely Canton experts on a topic across CCPEDIA: forum activity matching the topic, plus overall forum/GitHub volume of that author. | `topic`*, `limit` |
 | `find_known_issues` | Surface known UNRESOLVED problems matching a free-text description: forum threads with zero replies but high views, plus open GitHub issues. | `description`*, `limit` |
 | `find_maintainer_guidance` | Surface forum/mailing posts authored by top-volume Canton contributors (likely maintainers) on a topic. | `topic`* |
 | `find_security_patches` | Surface release notes likely to contain security or CVE fixes. | `limit` |
-| `find_similar_projects` | Find Canton ecosystem projects most similar to a free-text description by matching across title + category + description + tags: searches only the live ecosystem direc... | `description`*, `limit` |
-| `search` | Keyword/full-text search over the Canton Network knowledge base (CIPs, Canton/Daml/Splice docs, forum, mailing lists, whitepapers, grant proposals, blog, YouTube, GitH... | `query`*, `type`, `limit` |
+| `find_similar_projects` | Find Canton ecosystem projects most similar to a free-text description by matching across title + category + description + tags: searches only the live ecosystem direc... | `description`*, `limit`, `offset` |
+| `search` | Keyword/full-text search over the Canton Network knowledge base (CIPs, Canton/Daml/Splice docs, forum, mailing lists, whitepapers, grant proposals, blog, YouTube, GitH... | `query`*, `type`, `limit`, `offset` |
 | `search_community` | One-call semantic-style search across CCPEDIA's community sources at once: forum, mailing lists, blog, and GitHub discussions. | `query`*, `limit` |
-| `search_github_issues` | Full-text search across CCPEDIA's indexed GitHub issues (15+ Canton repos). | `query`*, `state`, `limit` |
-| `search_mailing_list` | Search across CCPEDIA's indexed Canton mailing-list archives (cip-discuss, cip-vote, grants-discuss, validator-announce, etc). | `query`*, `group`, `limit` |
+| `search_github_issues` | Full-text search across CCPEDIA's indexed GitHub issues (15+ Canton repos). | `query`*, `state`, `limit`, `offset` |
+| `search_mailing_list` | Search across CCPEDIA's indexed Canton mailing-list archives (cip-discuss, cip-vote, grants-discuss, validator-announce, etc). | `query`*, `group`, `limit`, `offset` |
 | `search_release_notes` | Search across release-notes bodies of all indexed Canton repos for a feature/keyword. | `feature`* |
-| `search_talks` | Search CCPEDIA's indexed Canton talks/videos (YouTube transcripts). | `query`*, `limit` |
+| `search_talks` | Search CCPEDIA's indexed Canton talks/videos (YouTube transcripts). | `query`*, `limit`, `offset` |
 | `semantic_search` | PRIMARY tool for open-ended questions: how / why / what-is, troubleshooting a symptom ("why is my balance zero", "how do I fix X"), and locating config or setup steps. | `query`*, `source_types`, `limit` |
 
 Arguments marked with `*` are required.
@@ -48,13 +48,13 @@ Arguments marked with `*` are required.
 | `get_cip_history` | Get the status-transition timeline of a single Canton Improvement Proposal (CIP): each dated from->to change (e.g. | `id`* |
 | `get_cip_implementation_status` | For one CIP, report whether code/grants are tracking the proposal: linked dev-fund PRs, related ecosystem projects, status transitions. | `cip_number`* |
 | `get_cip_mentions` | Find every place that references a given Canton Improvement Proposal (CIP): forum threads, mailing-list posts, blog articles, Dev Fund grant proposals, and sibling CIP... | `id`* |
-| `get_cip_vote_outcome` | Find out whether a Canton Improvement Proposal (CIP) was actually acted on ON CHAIN, and how. | `cip_id`* |
+| `get_cip_vote_outcome` | Find out whether a Canton Improvement Proposal (CIP) was actually acted on ON CHAIN, and how. | `cip_id`*, `limit` |
 | `get_cip_votes` | Get the formal vote tally (in-favor / against / abstain, one entry per recorded vote) for a specific Canton Improvement Proposal (CIP), sourced from the Canton cip-vot... | `cip_id`* |
 | `get_governance_vote` | Get the full detail of one Canton on-chain DSO governance vote request: the proposed action, the requester's stated reason, every Super Validator's individual vote wit... | `tracking_cid`* |
 | `get_proposal_milestones` | For one Canton Dev Fund proposal PR, list any related milestone tracking issues (issues whose body or title references the PR number). | `pr_number`* |
-| `get_proposals` | List Canton Network Dev Fund grant proposals: community funding requests tracked on GitHub. | `state`, `limit` |
-| `list_cips` | Browse Canton Improvement Proposals (CIPs), optionally filtered by status (Draft, Early Draft, In Review, Proposed, Approved, Active, Final, Withdrawn, Rejected, Repla... | `status`, `type`, `limit` |
-| `list_governance_votes` | List Canton Network on-chain DSO governance vote requests and their outcomes, from the ledger itself. | `limit`, `action`, `outcome`, `status` |
+| `get_proposals` | List Canton Network Dev Fund grant proposals: community funding requests tracked on GitHub. | `state`, `limit`, `offset` |
+| `list_cips` | Browse Canton Improvement Proposals (CIPs), optionally filtered by status (Draft, Early Draft, In Review, Proposed, Approved, Active, Final, Withdrawn, Rejected, Repla... | `status`, `type`, `limit`, `offset` |
+| `list_governance_votes` | List Canton Network on-chain DSO governance vote requests and their outcomes, from the ledger itself. | `limit`, `action`, `outcome`, `status`, `offset` |
 | `list_votes_by_sv` | Get the on-chain voting record of Canton Super Validators: how many DSO governance votes each has cast, how often they voted for or against, how often they abstained, ... | `sv_name` |
 | `proposal_success_predictor` | Heuristic readiness score for a Dev Fund proposal draft, based on attributes that correlate with approval in the historical corpus: explicit milestones, code/PoC refer... | `draft_text`* |
 
@@ -100,7 +100,7 @@ Arguments marked with `*` are required.
 | `get_token_market` | Get the latest cached market snapshot for CANTON COIN (CC) ONLY: USD price, 24h change, market cap, 24h volume, total Canton DeFi TVL, and per-protocol TVL on Canton. | none |
 | `get_validator` | Look up an individual Canton validator node in the DSO registry by name or party id: its sponsor, self-reported Splice version and how stale that report is, when it wa... | `name`*, `limit` |
 | `get_validator_fleet` | Where do you stand versus other Canton operators on your Splice version? | `version` |
-| `list_ecosystem_projects` | List Canton Network ecosystem projects (DeFi protocols, wallets, custody, infrastructure, NaaS, etc.) from the curated canton.wiki catalog. | `category`, `query`, `liveness`, `limit` |
+| `list_ecosystem_projects` | List Canton Network ecosystem projects (DeFi protocols, wallets, custody, infrastructure, NaaS, etc.) from the curated canton.wiki catalog. | `category`, `query`, `liveness`, `limit`, `offset` |
 
 Arguments marked with `*` are required.
 
@@ -138,10 +138,10 @@ Arguments marked with `*` are required.
 | `get_foundation_info` | Retrieve official Canton Foundation pages (canton.foundation): team and board bios, working groups, membership process, grants program. | `topic`*, `limit` |
 | `get_funding_landscape` | Overview of the Canton Dev Fund: counts of proposals by state and label, top categories, and recent activity. | `category` |
 | `get_issue_status` | Look up one GitHub issue or PR by repo + number. | `repo`*, `number`* |
-| `get_npm_packages` | List the indexed Canton/Daml npm packages (sdk_versions registry=npm) optionally filtered by name. | `query`, `limit` |
-| `get_radar` | Get the Canton Network Radar, CCPEDIA's curated feed of time-sensitive ecosystem alerts: breaking changes, upgrade deadlines, protocol migrations and required validato... | `level`, `limit` |
+| `get_npm_packages` | List the indexed Canton/Daml npm packages (sdk_versions registry=npm) optionally filtered by name. | `query`, `limit`, `offset` |
+| `get_radar` | Get the Canton Network Radar, CCPEDIA's curated feed of time-sensitive ecosystem alerts: breaking changes, upgrade deadlines, protocol migrations and required validato... | `level`, `limit`, `offset` |
 | `get_recent_changes` | Get a chronological (newest-first) feed of recent Canton Network activity: CIP status changes, new grant proposals, new forum threads, blog posts, GitHub releases, and... | `days`, `limit` |
-| `get_recent_deployments` | Recent completed SV deployments/releases from sv_operations_calendar (operation_type in deploy\|release\|upgrade), cross-referenced with github_releases when the title n... | `limit` |
+| `get_recent_deployments` | Recent completed SV deployments/releases from sv_operations_calendar (operation_type in deploy\|release\|upgrade), cross-referenced with github_releases when the title n... | `limit`, `offset` |
 | `get_recurring_issue_fingerprint` | Identify error patterns that recur across multiple Canton SDK or Splice release windows: structural bugs the ecosystem keeps hitting versus one-off regressions. | `window_months`, `min_months` |
 | `get_started_guide` | Generate a personalized Canton Network developer onboarding/quickstart path. | `background`* |
 | `get_sv_schedule` | Show the Super Validator operations schedule from the Canton Foundation's sv-cal.canton.foundation feed: planned releases, deploys, upgrades, governance windows, freezes. | `environment`, `upcoming_only`, `limit` |
