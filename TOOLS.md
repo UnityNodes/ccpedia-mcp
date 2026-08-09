@@ -43,7 +43,7 @@ Arguments marked with `*` are required.
 | `compare_governance_outcomes` | Aggregate governance throughput over a window: CIPs that changed status (approved / rejected / advanced), counts of cip-vote and cip-discuss mailing activity, and dev-... | `window_days`* |
 | `detect_cip_dependency_chain` | Walk the CIP `requires:` graph from a starting CIP or PR draft. | `cip_id`* |
 | `get_cip` | Fetch the full markdown body of a single Canton Improvement Proposal (CIP) by its ID (e.g. "CIP-0042", "0042", "PR-0117"). | `id`* |
-| `get_cip_attachments` | List file/PDF attachments linked to a single Canton Improvement Proposal (CIP): supporting docs and signed-vote-record PDFs, with filenames and URLs. | `id`* |
+| `get_cip_attachments` | Get the file/PDF attachments of a single Canton Improvement Proposal (CIP): supporting documents and signed-vote-record PDFs, with filename, page count, URL, and the f... | `id`* |
 | `get_cip_citations` | Comprehensive citation graph for a Canton Improvement Proposal (CIP): every place across CCPEDIA's corpus that references CIP-N. | `cip_id`* |
 | `get_cip_history` | Get the status-transition timeline of a single Canton Improvement Proposal (CIP): each dated from->to change (e.g. | `id`* |
 | `get_cip_implementation_status` | For one CIP, report whether code/grants are tracking the proposal: linked dev-fund PRs, related ecosystem projects, status transitions. | `cip_number`* |
