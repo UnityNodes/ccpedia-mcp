@@ -94,7 +94,7 @@ Arguments marked with `*` are required.
 | Tool | What it does | Arguments |
 | --- | --- | --- |
 | `ecosystem_dependency_graph` | Map ecosystem_projects matching a topic to the SDK versions and repos they appear alongside, building a quick dependency picture. | `topic`* |
-| `get_ecosystem_gaps` | Surface ecosystem gaps: high-view forum threads with zero replies (unanswered demand), recent unanswered mailing threads, and Dev Fund categories with few accepted pro... | `limit` |
+| `get_ecosystem_gaps` | Surface ecosystem gaps: high-view forum threads with zero replies (unanswered demand), mailing threads that got no reply, and open Dev Fund proposals with no label ass... | `limit` |
 | `get_network_state` | Get the latest Canton Network ON-CHAIN state snapshot from the public Scan API (api.cantonnodes.com): Super Validator list & count, voting threshold, sequencer count, ... | none |
 | `get_network_stats` | Get CCPEDIA's CONTENT-CATALOG metrics: how many Canton items CCPEDIA has indexed. | none |
 | `get_token_market` | Get the latest cached market snapshot for CANTON COIN (CC) ONLY: USD price, 24h change, market cap, 24h volume, total Canton DeFi TVL, and per-protocol TVL on Canton. | none |
