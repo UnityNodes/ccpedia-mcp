@@ -40,16 +40,16 @@ Arguments marked with `*` are required.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
-| `compare_governance_outcomes` | Aggregate governance throughput over a window: CIPs that changed status (approved / rejected / advanced), counts of cip-vote and cip-discuss mailing activity, and dev-... | `window_days`* |
+| `compare_governance_outcomes` | Aggregate governance throughput over a window: CIPs that changed status (approved / rejected / advanced), counts of cip-vote and cip-discuss mailing activity, and dev-... | `window_days` |
 | `detect_cip_dependency_chain` | Walk the CIP `requires:` graph from a starting CIP or PR draft. | `cip_id`* |
 | `get_cip` | Fetch the full markdown body of a single Canton Improvement Proposal (CIP) by its ID (e.g. "CIP-0042", "0042", "PR-0117"). | `id`* |
 | `get_cip_attachments` | Get the file/PDF attachments of a single Canton Improvement Proposal (CIP): supporting documents and signed-vote-record PDFs, with filename, page count, URL, and the f... | `id`* |
 | `get_cip_citations` | Comprehensive citation graph for a Canton Improvement Proposal (CIP): every place across CCPEDIA's corpus that references CIP-N. | `cip_id`* |
 | `get_cip_history` | Get the status-transition timeline of a single Canton Improvement Proposal (CIP): each dated from->to change (e.g. | `id`* |
-| `get_cip_implementation_status` | For one CIP, report whether code/grants are tracking the proposal: linked dev-fund PRs, related ecosystem projects, status transitions. | `cip_number`* |
+| `get_cip_implementation_status` | For one CIP, report whether code/grants are tracking the proposal: linked dev-fund PRs, related ecosystem projects, status transitions. | `cip_id`* |
 | `get_cip_mentions` | Find every place that references a given Canton Improvement Proposal (CIP): forum threads, mailing-list posts, blog articles, Dev Fund grant proposals, and sibling CIP... | `id`* |
 | `get_cip_vote_outcome` | Find out whether a Canton Improvement Proposal (CIP) was actually acted on ON CHAIN, and how. | `cip_id`*, `limit` |
-| `get_cip_votes` | Get the formal vote tally (in-favor / against / abstain, one entry per recorded vote) for a specific Canton Improvement Proposal (CIP), sourced from the Canton cip-vot... | `cip_id`* |
+| `get_cip_votes` | Get the cip-vote mailing-list messages for a specific Canton Improvement Proposal (CIP), oldest first: the raw discussion trail as sent, with each SV/participant's vot... | `cip_id`*, `limit`, `offset` |
 | `get_governance_vote` | Get the full detail of one Canton on-chain DSO governance vote request: the proposed action, the requester's stated reason, every Super Validator's individual vote wit... | `tracking_cid`* |
 | `get_proposal_milestones` | For one Canton Dev Fund proposal PR, list any related milestone tracking issues (issues whose body or title references the PR number). | `pr_number`* |
 | `get_proposals` | List Canton Network Dev Fund grant proposals: community funding requests tracked on GitHub. | `state`, `limit`, `offset` |
@@ -81,7 +81,7 @@ Arguments marked with `*` are required.
 | --- | --- | --- |
 | `get_discussion` | Get a single thread from the official Canton Network community forum (Discourse at forum-style discussions on ccpedia.xyz) by numeric topic id: title, category, view/p... | `id`* |
 | `get_github_discussion` | Get the full body and comments of a single GitHub Discussion from a Canton Network or Digital Asset repo, by its GitHub GraphQL node id (from list_github_discussions). | `id`* |
-| `get_mailing_thread` | Get every message (oldest first) in a specific Canton Network governance mailing-list thread on lists.sync.global (cip-discuss, cip-vote, grants-discuss, etc.). | `id`* |
+| `get_mailing_thread` | Get every message (oldest first) in a specific Canton Network governance mailing-list thread on lists.sync.global (cip-discuss, cip-vote, grants-discuss, etc.). | `id`*, `limit`, `offset` |
 | `list_github_discussions` | List GitHub Discussions from Canton Network and Digital Asset repositories cached by CCPEDIA, sorted by recency (newest first). | `repo`, `category`, `limit` |
 | `list_mailing_threads` | List threads from the Canton Network governance mailing lists (lists.sync.global groups: cip-discuss, cip-vote, cip-announce, globalSyncForum, grants-discuss, validato... | `group`, `cip_id`, `since`, `limit`, `offset` |
 
@@ -147,7 +147,7 @@ Arguments marked with `*` are required.
 | `get_sv_schedule` | Show the Super Validator operations schedule from the Canton Foundation's sv-cal.canton.foundation feed: planned releases, deploys, upgrades, governance windows, freezes. | `environment`, `upcoming_only`, `limit` |
 | `get_trending` | Get this week's most popular/trending Canton Network content (CIPs, forum threads, docs, blog, etc.) ranked by an engagement score. | none |
 | `get_upcoming_deadlines` | Canton operational deadlines coming up: scheduled upgrades, minimum-version raises, topology freezes and Logical Synchronizer Upgrades, per network. | `environment`, `days`, `validator_only` |
-| `get_upcoming_operations` | Convenience wrapper: SV operations in the next N days, all environments, all operation types. | `days`* |
+| `get_upcoming_operations` | Convenience wrapper: SV operations in the next N days, all environments, all operation types. | `days` |
 | `get_video` | Get a Canton Network video that CCPEDIA has cached (curated channels: Canton Network, Digital Asset, Sync Insights, Canton Foundation, Daml) by its YouTube id: title, ... | `id`*, `transcript_chars` |
 | `learning_path` | Construct a structured Canton onboarding sequence for a stated goal: whitepaper → relevant docs → CIPs to know → forum starter threads → talks. | `goal`* |
 | `list_canton_mcps` | List the Canton Network MCP servers CCPEDIA knows about: a directory of the Canton MCP ecosystem (payments, wallets, docs, knowledge). | none |
