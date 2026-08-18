@@ -125,7 +125,7 @@ Arguments marked with `*` are required.
 | --- | --- | --- |
 | `call_canton_mcp` | Federate a tool call to another Canton MCP server (see list_canton_mcps). | `server`*, `tool`*, `arguments` |
 | `check_deprecation` | Check whether a specific Canton/Daml toolchain item (CLI, SDK package, or command: e.g. daml-assistant, Navigator, dpm) is deprecated. | `name`* |
-| `community_consensus` | Surface signals of what the Canton community thinks about a topic: forum thread reply ratios, mailing list debate volume, and the highest-rated reply on the most-viewe... | `topic`* |
+| `community_consensus` | Surface signals of what the Canton community thinks about a topic: forum thread reply ratios, mailing list debate volume, and the first reply on the most-viewed thread. | `topic`* |
 | `compare_to_evm` | Map one Ethereum/EVM concept (e.g. smart contract, wallet, gas, ERC20, Hardhat, ABI) to its Canton Network equivalent, for developers migrating from Solidity/EVM to Ca... | `concept`* |
 | `detect_builder_overlap` | Given a project/proposal idea, find existing Canton ecosystem projects + dev-fund proposals that look similar: across BOTH the canton-dev-fund proposals corpus AND eco... | `idea`* |
 | `diagnose_error` | Paste a Canton/Daml/Splice ERROR MESSAGE, stack trace, or error code and get the most likely resolved fixes from CCPEDIA history: forum threads where the same error wa... | `error_text`*, `limit` |
