@@ -25,5 +25,11 @@ hand. If something in it is wrong, open an issue and we will regenerate it.
 ## Reporting something sensitive
 
 If you find a way to make the server return data it should not, or to break it
-for other users, please do not open a public issue. Write to us through
-https://ccpedia.xyz/contact instead.
+for other users, please do not open a public issue. See
+[SECURITY.md](SECURITY.md) for how to report it, the response timeline, and
+what is in scope.
+
+## Code of conduct
+
+Participation in this repository is covered by
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
