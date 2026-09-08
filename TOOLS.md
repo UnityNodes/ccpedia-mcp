@@ -4,7 +4,7 @@ This file is generated from the running server by `build-mcp-repo-docs.ts`.
 Do not edit it by hand, and do not copy the numbers below into other files:
 regenerate instead.
 
-**88 tools**, of which 87 are read only.
+**90 tools**, of which 89 are read only.
 
 Every tool is callable over the hosted endpoint without an API key. See the
 README for how to connect.
@@ -119,7 +119,7 @@ Arguments marked with `*` are required.
 
 ## Other
 
-34 tools.
+36 tools.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
@@ -132,8 +132,10 @@ Arguments marked with `*` are required.
 | `full_context` | Single free-text query across CCPEDIA's entire corpus at once: docs, CIPs, forum, mailing, GitHub items, blog, videos, whitepapers, ecosystem projects. | `topic`*, `limit_per_source` |
 | `get_api_reference` | Get a structured reference (ports, endpoints, services, links) for one specific Canton Network API: JSON Ledger API, gRPC Ledger API, Scan API, Validator API, Token St... | `api`* |
 | `get_app_metrics` | Fetch metrics for one specific Featured App by its app_id (contract id from the Scan API). | `app_id`* |
+| `get_asset_supply` | Get total token supply for a Canton-ecosystem asset: Canton Coin (CC), CBTC, HECTO, HANDL, USDCx, EDELx, or cETH. | `asset` |
 | `get_breaking_changes` | Compare two Canton/Daml/Splice SDK versions and return the list of changes between them: release notes from github_releases plus any forum/GitHub reports near the rele... | `from_sdk`*, `to_sdk`*, `repo` |
 | `get_current_versions` | Get the freshest Canton SDK, Splice, Daml, and DPM versions ALL AT ONCE, plus per-network Splice deployment status (DevNet / TestNet / MainNet) and any upcoming synchr... | none |
+| `get_defi_pools` | Get per-pool DeFi liquidity data on Canton from OneSwap, Send, and Tradecraft: pair, TVL, fee rate, APY, and reserve amounts. | `protocol` |
 | `get_faq` | Look up answers in the Canton Network developer FAQ (Canton Foundation curated, hackathon-tested): Canton/Daml installation, party creation, Daml contracts, Ledger/Sca... | `question`* |
 | `get_foundation_info` | Retrieve official Canton Foundation pages (canton.foundation): team and board bios, working groups, membership process, grants program. | `topic`*, `limit` |
 | `get_funding_landscape` | Overview of the Canton Dev Fund: counts of proposals by state and label, top categories, and recent activity. | `category` |
