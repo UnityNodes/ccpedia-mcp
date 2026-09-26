@@ -83,7 +83,7 @@ Arguments marked with `*` are required.
 | `get_github_discussion` | Get the full body and comments of a single GitHub Discussion from a Canton Network or Digital Asset repo, by its GitHub GraphQL node id (from list_github_discussions). | `id`* |
 | `get_mailing_thread` | Get every message (oldest first) in a specific Canton Network governance mailing-list thread on lists.sync.global (cip-discuss, cip-vote, grants-discuss, etc.). | `id`*, `limit`, `offset` |
 | `list_github_discussions` | List GitHub Discussions from Canton Network and Digital Asset repositories cached by CCPEDIA, sorted by recency (newest first). | `repo`, `category`, `limit` |
-| `list_mailing_threads` | List threads from the Canton Network governance mailing lists (lists.sync.global groups: cip-discuss, cip-vote, cip-announce, globalSyncForum, grants-discuss, validato... | `group`, `cip_id`, `since`, `limit`, `offset` |
+| `list_mailing_threads` | List threads from the Canton Network governance mailing lists (lists.sync.global groups: cip-discuss, cip-vote, cip-announce, grants-discuss, validator-announce, token... | `group`, `cip_id`, `since`, `limit`, `offset` |
 
 Arguments marked with `*` are required.
 
