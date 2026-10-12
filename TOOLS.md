@@ -4,14 +4,14 @@ This file is generated from the running server by `build-mcp-repo-docs.ts`.
 Do not edit it by hand, and do not copy the numbers below into other files:
 regenerate instead.
 
-**90 tools**, of which 89 are read only.
+**99 tools**, of which 98 are read only.
 
 Every tool is callable over the hosted endpoint without an API key. See the
 README for how to connect.
 
 ## Search and discovery
 
-16 tools.
+18 tools.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
@@ -22,10 +22,12 @@ README for how to connect.
 | `find_expert` | Rank likely Canton experts on a topic across CCPEDIA: forum activity matching the topic, plus overall forum/GitHub volume of that author. | `topic`*, `limit` |
 | `find_known_issues` | Surface known UNRESOLVED problems matching a free-text description: forum threads with zero replies but high views, plus open GitHub issues. | `description`*, `limit` |
 | `find_maintainer_guidance` | Surface forum/mailing posts authored by top-volume Canton contributors (likely maintainers) on a topic. | `topic`* |
+| `find_rfp_for_idea` | Given a project idea, find which Canton Dev Fund RFP(s) it fits and how crowded that area is. | `idea`* |
 | `find_security_patches` | Surface release notes likely to contain security or CVE fixes. | `limit` |
 | `find_similar_projects` | Find Canton ecosystem projects most similar to a free-text description by matching across title + category + description + tags: searches only the live ecosystem direc... | `description`*, `limit`, `offset` |
 | `search` | Keyword/full-text search over the Canton Network knowledge base (CIPs, Canton/Daml/Splice docs, forum, mailing lists, whitepapers, grant proposals, blog, YouTube, GitH... | `query`*, `type`, `limit`, `offset` |
 | `search_community` | One-call semantic-style search across CCPEDIA's community sources at once: forum, mailing lists, blog, and GitHub discussions. | `query`*, `limit` |
+| `search_dev_fund` | Search ALL Canton Dev Fund text for words: proposal files, PR descriptions, every comment, formal review and inline review comment, ranked by relevance with a snippet ... | `query`*, `mode`, `scope`, `author`, `limit`, `offset` |
 | `search_github_issues` | Full-text search across CCPEDIA's indexed GitHub issues (15+ Canton repos). | `query`*, `state`, `limit`, `offset` |
 | `search_mailing_list` | Search across CCPEDIA's indexed Canton mailing-list archives (cip-discuss, cip-vote, grants-discuss, validator-announce, etc). | `query`*, `group`, `limit`, `offset` |
 | `search_release_notes` | Search across release-notes bodies of all indexed Canton repos for a feature/keyword. | `feature`* |
@@ -36,7 +38,7 @@ Arguments marked with `*` are required.
 
 ## CIPs and governance
 
-17 tools.
+21 tools.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
@@ -51,10 +53,14 @@ Arguments marked with `*` are required.
 | `get_cip_vote_outcome` | Find out whether a Canton Improvement Proposal (CIP) was actually acted on ON CHAIN, and how. | `cip_id`*, `limit` |
 | `get_cip_votes` | Get the cip-vote mailing-list messages for a specific Canton Improvement Proposal (CIP), oldest first: the raw discussion trail as sent, with each SV/participant's vot... | `cip_id`*, `limit`, `offset` |
 | `get_governance_vote` | Get the full detail of one Canton on-chain DSO governance vote request: the proposed action, the requester's stated reason, every Super Validator's individual vote wit... | `tracking_cid`* |
+| `get_proposal` | Everything CCPEDIA holds about ONE Canton Dev Fund proposal (a pull request in canton-foundation/canton-dev-fund), by its PR number: state and project-board column, la... | `number`* |
+| `get_proposal_discussion` | The conversation on ONE Canton Dev Fund proposal, oldest first: every comment, every formal review (approved, changes requested, commented) and every inline review com... | `number`*, `kind`, `limit`, `offset` |
+| `get_proposal_file` | The full text of the proposal file(s) a Canton Dev Fund PR adds (proposals/*.md or rfps/<category>/*.md), exactly as in the PR head: abstract, specification, milestone... | `number`*, `path` |
 | `get_proposal_milestones` | For one Canton Dev Fund proposal PR, list any related milestone tracking issues (issues whose body or title references the PR number). | `pr_number`* |
 | `get_proposals` | List Canton Network Dev Fund grant proposals: community funding requests tracked on GitHub. | `state`, `limit`, `offset` |
 | `list_cips` | Browse Canton Improvement Proposals (CIPs), optionally filtered by status (Draft, Early Draft, In Review, Proposed, Approved, Active, Final, Withdrawn, Rejected, Repla... | `status`, `type`, `limit`, `offset` |
 | `list_governance_votes` | List Canton Network on-chain DSO governance vote requests and their outcomes, from the ledger itself. | `limit`, `action`, `outcome`, `status`, `offset` |
+| `list_proposals_needing_champion` | List open Canton Dev Fund proposals waiting in the Needs Champion or Incoming columns of the Foundation's project board, i.e. with no champion confirmed there, oldest ... | `rfp`, `limit`, `offset` |
 | `list_votes_by_sv` | Get the on-chain voting record of Canton Super Validators: how many DSO governance votes each has cast, how often they voted for or against, how often they abstained, ... | `sv_name` |
 | `proposal_success_predictor` | Heuristic readiness score for a Dev Fund proposal draft, based on attributes that correlate with approval in the historical corpus: explicit milestones, code/PoC refer... | `draft_text`* |
 
@@ -119,13 +125,13 @@ Arguments marked with `*` are required.
 
 ## Other
 
-36 tools.
+39 tools.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
 | `call_canton_mcp` | Federate a tool call to another Canton MCP server (see list_canton_mcps). | `server`*, `tool`*, `arguments` |
 | `check_deprecation` | Check whether a specific Canton/Daml toolchain item (CLI, SDK package, or command: e.g. daml-assistant, Navigator, dpm) is deprecated. | `name`* |
-| `community_consensus` | Surface signals of what the Canton community thinks about a topic: forum thread reply ratios, mailing list debate volume, and the first reply on the most-viewed thread. | `topic`* |
+| `community_consensus` | Surface signals of what the Canton community thinks about a topic: the forum threads that match it best (views, replies, distinct participants), mailing list debate vo... | `topic`* |
 | `compare_to_evm` | Map one Ethereum/EVM concept (e.g. smart contract, wallet, gas, ERC20, Hardhat, ABI) to its Canton Network equivalent, for developers migrating from Solidity/EVM to Ca... | `concept`* |
 | `detect_builder_overlap` | Given a project/proposal idea, find existing Canton ecosystem projects + dev-fund proposals that look similar: across BOTH the canton-dev-fund proposals corpus AND eco... | `idea`* |
 | `diagnose_error` | Paste a Canton/Daml/Splice ERROR MESSAGE, stack trace, or error code and get the most likely resolved fixes from CCPEDIA history: forum threads where the same error wa... | `error_text`*, `limit` |
@@ -136,6 +142,8 @@ Arguments marked with `*` are required.
 | `get_breaking_changes` | Compare two Canton/Daml/Splice SDK versions and return the list of changes between them: release notes from github_releases plus any forum/GitHub reports near the rele... | `from_sdk`*, `to_sdk`*, `repo` |
 | `get_current_versions` | Get the freshest Canton SDK, Splice, Daml, and DPM versions ALL AT ONCE, plus per-network Splice deployment status (DevNet / TestNet / MainNet) and any upcoming synchr... | none |
 | `get_defi_pools` | Get per-pool DeFi liquidity data on Canton from OneSwap, Send, and Tradecraft: pair, TVL, fee rate, APY, and reserve amounts. | `protocol` |
+| `get_dev_fund_activity` | What happened in the Canton Dev Fund lately, newest first: new comments and reviews with a snippet, and (optionally) timeline events such as labels added, reviewers re... | `days`, `include_events`, `limit`, `offset` |
+| `get_dev_fund_person` | Who is this person in the Canton Dev Fund, by GitHub login: their SIG memberships and organization (from the SIG directory), the proposals they authored, how much they... | `login`* |
 | `get_faq` | Look up answers in the Canton Network developer FAQ (Canton Foundation curated, hackathon-tested): Canton/Daml installation, party creation, Daml contracts, Ledger/Sca... | `question`* |
 | `get_foundation_info` | Retrieve official Canton Foundation pages (canton.foundation): team and board bios, working groups, membership process, grants program. | `topic`*, `limit` |
 | `get_funding_landscape` | Overview of the Canton Dev Fund: counts of proposals by state and label, top categories, and recent activity. | `category` |
@@ -156,6 +164,7 @@ Arguments marked with `*` are required.
 | `list_deprecations` | List all known deprecated Daml/Canton CLI commands, packages, and tools with their modern replacements. | `category` |
 | `list_featured_apps` | List Canton Network Featured Apps from the live Scan-API-sourced catalogue. | `category`, `sort`, `limit` |
 | `list_repos` | List the Canton Network GitHub repositories that CCPEDIA has indexed (Canton org repos such as canton-foundation and Daml/Splice, excluding the dev-fund proposals repo... | none |
+| `list_rfps` | List the Canton Foundation Dev Fund Requests for Proposals (RFPs) from the 2026-2028 roadmap: number, title, category, and how many Dev Fund proposals declare each one. | `number` |
 | `list_videos` | List Canton Network videos cached in CCPEDIA, filtered by channel (Canton Network, Digital Asset, Sync Insights, Canton Foundation, Daml), publish date (since), and tr... | `channel`, `since`, `has_transcript`, `limit`, `offset` |
 | `migrate_lookup` | Look up the modern replacement for a deprecated Daml/Canton CLI command, npm package, or tool (e.g. "daml start", "@daml/ledger", "Navigator", "Daml Triggers", "splice... | `query`* |
 | `outdated_guidance_detector` | Surface CCPEDIA content that mentions deprecated Canton/Daml tooling alongside the user's query: likely outdated. | `query`* |
