@@ -4,14 +4,14 @@ This file is generated from the running server by `build-mcp-repo-docs.ts`.
 Do not edit it by hand, and do not copy the numbers below into other files:
 regenerate instead.
 
-**99 tools**, of which 98 are read only.
+**102 tools**, of which 101 are read only.
 
 Every tool is callable over the hosted endpoint without an API key. See the
 README for how to connect.
 
 ## Search and discovery
 
-18 tools.
+19 tools.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
@@ -19,6 +19,7 @@ README for how to connect.
 | `find_cip_for_feature` | Given a Canton feature or capability description, find the matching CIP(s) by searching titles and bodies. | `feature`* |
 | `find_code_examples` | Find Canton/Daml code snippets in forum posts on a topic. | `topic`*, `limit`, `offset` |
 | `find_collaboration_opportunities` | Given one Canton ecosystem project, find others with complementary tags/category that could plug in. | `project`* |
+| `find_duplicate_proposals` | Find Canton Dev Fund proposals that duplicate, re-file or overlap each other, from the proposal files compared by meaning plus identical text, title, author and organi... | `number`, `relations`, `scope`, `min_similarity`, `limit`, `offset` |
 | `find_expert` | Rank likely Canton experts on a topic across CCPEDIA: forum activity matching the topic, plus overall forum/GitHub volume of that author. | `topic`*, `limit` |
 | `find_known_issues` | Surface known UNRESOLVED problems matching a free-text description: forum threads with zero replies but high views, plus open GitHub issues. | `description`*, `limit` |
 | `find_maintainer_guidance` | Surface forum/mailing posts authored by top-volume Canton contributors (likely maintainers) on a topic. | `topic`* |
@@ -38,7 +39,7 @@ Arguments marked with `*` are required.
 
 ## CIPs and governance
 
-21 tools.
+22 tools.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
@@ -61,6 +62,7 @@ Arguments marked with `*` are required.
 | `list_cips` | Browse Canton Improvement Proposals (CIPs), optionally filtered by status (Draft, Early Draft, In Review, Proposed, Approved, Active, Final, Withdrawn, Rejected, Repla... | `status`, `type`, `limit`, `offset` |
 | `list_governance_votes` | List Canton Network on-chain DSO governance vote requests and their outcomes, from the ledger itself. | `limit`, `action`, `outcome`, `status`, `offset` |
 | `list_proposals_needing_champion` | List open Canton Dev Fund proposals waiting in the Needs Champion or Incoming columns of the Foundation's project board, i.e. with no champion confirmed there, oldest ... | `rfp`, `limit`, `offset` |
+| `list_stuck_proposals` | Open Canton Dev Fund proposals that nothing has happened on for at least a number of days (no human comment, review or board move), oldest first, grouped by who the ne... | `waiting_on`, `stuck_days`, `limit`, `offset` |
 | `list_votes_by_sv` | Get the on-chain voting record of Canton Super Validators: how many DSO governance votes each has cast, how often they voted for or against, how often they abstained, ... | `sv_name` |
 | `proposal_success_predictor` | Heuristic readiness score for a Dev Fund proposal draft, based on attributes that correlate with approval in the historical corpus: explicit milestones, code/PoC refer... | `draft_text`* |
 
@@ -125,7 +127,7 @@ Arguments marked with `*` are required.
 
 ## Other
 
-39 tools.
+40 tools.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
@@ -143,6 +145,7 @@ Arguments marked with `*` are required.
 | `get_current_versions` | Get the freshest Canton SDK, Splice, Daml, and DPM versions ALL AT ONCE, plus per-network Splice deployment status (DevNet / TestNet / MainNet) and any upcoming synchr... | none |
 | `get_defi_pools` | Get per-pool DeFi liquidity data on Canton from OneSwap, Send, and Tradecraft: pair, TVL, fee rate, APY, and reserve amounts. | `protocol` |
 | `get_dev_fund_activity` | What happened in the Canton Dev Fund lately, newest first: new comments and reviews with a snippet, and (optionally) timeline events such as labels added, reviewers re... | `days`, `include_events`, `limit`, `offset` |
+| `get_dev_fund_lifecycle` | How Canton Dev Fund proposals actually move through the Foundation project board, from the recorded column history: the funnel (how many reach each column), median and... | `number`, `view` |
 | `get_dev_fund_person` | Who is this person in the Canton Dev Fund, by GitHub login: their SIG memberships and organization (from the SIG directory), the proposals they authored, how much they... | `login`* |
 | `get_faq` | Look up answers in the Canton Network developer FAQ (Canton Foundation curated, hackathon-tested): Canton/Daml installation, party creation, Daml contracts, Ledger/Sca... | `question`* |
 | `get_foundation_info` | Retrieve official Canton Foundation pages (canton.foundation): team and board bios, working groups, membership process, grants program. | `topic`*, `limit` |
