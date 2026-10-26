@@ -161,14 +161,14 @@ Arguments marked with `*` are required.
 | `get_trending` | Get this week's most popular/trending Canton Network content (CIPs, forum threads, docs, blog, etc.) ranked by an engagement score. | none |
 | `get_upcoming_deadlines` | Canton operational deadlines coming up: scheduled upgrades, minimum-version raises, topology freezes and Logical Synchronizer Upgrades, per network. | `environment`, `days`, `validator_only` |
 | `get_upcoming_operations` | Convenience wrapper: SV operations in the next N days, all environments, all operation types. | `days` |
-| `get_video` | Get a Canton Network video that CCPEDIA has cached (curated channels: Canton Network, Digital Asset, Sync Insights, Canton Foundation, Daml) by its YouTube id: title, ... | `id`*, `transcript_chars` |
+| `get_video` | Get a Canton Network video that CCPEDIA has cached (curated channels: Canton Network, Digital Asset, Sync Insights, Canton Foundation, Daml, Digital Asset Training) by... | `id`*, `transcript_chars`, `offset`, `query` |
 | `learning_path` | Construct a structured Canton onboarding sequence for a stated goal: whitepaper → relevant docs → CIPs to know → forum starter threads → talks. | `goal`* |
 | `list_canton_mcps` | List the Canton Network MCP servers CCPEDIA knows about: a directory of the Canton MCP ecosystem (payments, wallets, docs, knowledge). | none |
 | `list_deprecations` | List all known deprecated Daml/Canton CLI commands, packages, and tools with their modern replacements. | `category` |
 | `list_featured_apps` | List Canton Network Featured Apps from the live Scan-API-sourced catalogue. | `category`, `sort`, `limit` |
 | `list_repos` | List the Canton Network GitHub repositories that CCPEDIA has indexed (Canton org repos such as canton-foundation and Daml/Splice, excluding the dev-fund proposals repo... | none |
 | `list_rfps` | List the Canton Foundation Dev Fund Requests for Proposals (RFPs) from the 2026-2028 roadmap: number, title, category, and how many Dev Fund proposals declare each one. | `number` |
-| `list_videos` | List Canton Network videos cached in CCPEDIA, filtered by channel (Canton Network, Digital Asset, Sync Insights, Canton Foundation, Daml), publish date (since), and tr... | `channel`, `since`, `has_transcript`, `limit`, `offset` |
+| `list_videos` | List Canton Network videos cached in CCPEDIA, filtered by channel (Canton Network, Digital Asset, Sync Insights, Canton Foundation, Daml, Digital Asset Training), publ... | `channel`, `since`, `has_transcript`, `limit`, `offset` |
 | `migrate_lookup` | Look up the modern replacement for a deprecated Daml/Canton CLI command, npm package, or tool (e.g. "daml start", "@daml/ledger", "Navigator", "Daml Triggers", "splice... | `query`* |
 | `outdated_guidance_detector` | Surface CCPEDIA content that mentions deprecated Canton/Daml tooling alongside the user's query: likely outdated. | `query`* |
 
