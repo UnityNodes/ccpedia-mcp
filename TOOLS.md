@@ -4,7 +4,7 @@ This file is generated from the running server by `build-mcp-repo-docs.ts`.
 Do not edit it by hand, and do not copy the numbers below into other files:
 regenerate instead.
 
-**102 tools**, of which 101 are read only.
+**104 tools**, of which 103 are read only.
 
 Every tool is callable over the hosted endpoint without an API key. See the
 README for how to connect.
@@ -127,7 +127,7 @@ Arguments marked with `*` are required.
 
 ## Other
 
-40 tools.
+42 tools.
 
 | Tool | What it does | Arguments |
 | --- | --- | --- |
@@ -141,6 +141,7 @@ Arguments marked with `*` are required.
 | `get_api_reference` | Get a structured reference (ports, endpoints, services, links) for one specific Canton Network API: JSON Ledger API, gRPC Ledger API, Scan API, Validator API, Token St... | `api`* |
 | `get_app_metrics` | Fetch metrics for one specific Featured App by its app_id (contract id from the Scan API). | `app_id`* |
 | `get_asset_supply` | Get total token supply for a Canton-ecosystem asset: Canton Coin (CC), CBTC, HECTO, HANDL, USDCx, EDELx, or cETH. | `asset` |
+| `get_blog_post` | Get one blog post by the id list_blog_posts or search gave: title, kind, author, date and the text. | `id`*, `chars`, `offset` |
 | `get_breaking_changes` | Compare two Canton/Daml/Splice SDK versions and return the list of changes between them: release notes from github_releases plus any forum/GitHub reports near the rele... | `from_sdk`*, `to_sdk`*, `repo` |
 | `get_current_versions` | Get the freshest Canton SDK, Splice, Daml, and DPM versions ALL AT ONCE, plus per-network Splice deployment status (DevNet / TestNet / MainNet) and any upcoming synchr... | none |
 | `get_defi_pools` | Get per-pool DeFi liquidity data on Canton from OneSwap, Send, and Tradecraft: pair, TVL, fee rate, APY, and reserve amounts. | `protocol` |
@@ -163,6 +164,7 @@ Arguments marked with `*` are required.
 | `get_upcoming_operations` | Convenience wrapper: SV operations in the next N days, all environments, all operation types. | `days` |
 | `get_video` | Get a Canton Network video that CCPEDIA has cached (curated channels: Canton Network, Digital Asset, Sync Insights, Canton Foundation, Daml, Digital Asset Training) by... | `id`*, `transcript_chars`, `offset`, `query` |
 | `learning_path` | Construct a structured Canton onboarding sequence for a stated goal: whitepaper → relevant docs → CIPs to know → forum starter threads → talks. | `goal`* |
+| `list_blog_posts` | List the blog posts CCPEDIA holds: articles, news and press releases from Canton, Digital Asset and the Canton Foundation, and in tabs of their own partner press, netw... | `source`, `query`, `limit`, `offset` |
 | `list_canton_mcps` | List the Canton Network MCP servers CCPEDIA knows about: a directory of the Canton MCP ecosystem (payments, wallets, docs, knowledge). | none |
 | `list_deprecations` | List all known deprecated Daml/Canton CLI commands, packages, and tools with their modern replacements. | `category` |
 | `list_featured_apps` | List Canton Network Featured Apps from the live Scan-API-sourced catalogue. | `category`, `sort`, `limit` |
