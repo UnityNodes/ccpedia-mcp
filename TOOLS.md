@@ -59,7 +59,7 @@ Arguments marked with `*` are required.
 | `get_proposal_file` | The full text of the proposal file(s) a Canton Dev Fund PR adds (proposals/*.md or rfps/<category>/*.md), exactly as in the PR head: abstract, specification, milestone... | `number`*, `path` |
 | `get_proposal_milestones` | For one Canton Dev Fund proposal PR, list any related milestone tracking issues (issues whose body or title references the PR number). | `pr_number`* |
 | `get_proposals` | List Canton Network Dev Fund grant proposals: community funding requests tracked on GitHub. | `state`, `limit`, `offset` |
-| `list_cips` | Browse Canton Improvement Proposals (CIPs), optionally filtered by status (Draft, Early Draft, In Review, Proposed, Approved, Active, Final, Withdrawn, Rejected, Repla... | `status`, `type`, `limit`, `offset` |
+| `list_cips` | Browse Canton Improvement Proposals (CIPs), optionally filtered by status (Draft, Early Draft, In Review, Proposed, Proposed Amendment, Approved, Active, Final, Withdr... | `status`, `type`, `limit`, `offset` |
 | `list_governance_votes` | List Canton Network on-chain DSO governance vote requests and their outcomes, from the ledger itself. | `limit`, `action`, `outcome`, `status`, `offset` |
 | `list_proposals_needing_champion` | List open Canton Dev Fund proposals waiting in the Needs Champion or Incoming columns of the Foundation's project board, i.e. with no champion confirmed there, oldest ... | `rfp`, `limit`, `offset` |
 | `list_stuck_proposals` | Open Canton Dev Fund proposals that nothing has happened on for at least a number of days (no human comment, review or board move), oldest first, grouped by who the ne... | `waiting_on`, `stuck_days`, `limit`, `offset` |
